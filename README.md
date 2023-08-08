@@ -1,2 +1,2 @@
-# catlog-servcie
-catlog service
+# catalog-service
+catalog service
