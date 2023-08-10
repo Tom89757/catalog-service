@@ -38,3 +38,6 @@ out/
 
 libs/
 bindings/
+
+# Ignore Gradle build output directory
+build
