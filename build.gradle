@@ -25,7 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	compileOnly files('libs/bellsoft-jdk17.0.8+7-linux-amd64.tar.gz')
+	compileOnly files('libs/bellsoft-jre17.0.7+7-linux-amd64.tar.gz')
 }
 
 tasks.named('test') {
@@ -38,7 +38,17 @@ ext {
 println baseDir
 
 bootBuildImage {
-	bindings = [
-			"${baseDir}/config/bellsoft-jdk-config:/platform/bindings/bellsoft-jdk-config",
-	]
+    builder="paketobuildpacks/builder:tiny"
+//	bindings = [
+//			"${baseDir}/config/bellsoft-jdk-config:/platform/bindings/bellsoft-jdk-config",
+//	]
+    environment = ["BP_JVM_VERSION" : "17.0.7",
+//                   "BP_JVM_TYPE": "jdk"
+					"HTTP_PROXY": "http://127.0.0.1:1080",
+					"HTTPS_PROXY": "https://127.0.0.1:1080",
+    ]
 }
+
+//tasks.named("bootBuildImage") {
+//
+//}
