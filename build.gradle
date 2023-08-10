@@ -12,6 +12,9 @@ java {
 }
 
 repositories {
+	maven{ url 'https://maven.aliyun.com/repository/central' }
+	maven{ url 'https://maven.aliyun.com/repository/public' }
+	maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
 	mavenCentral()
 }
 
@@ -22,4 +25,15 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+ext {
+	baseDir = getRootDir().absolutePath
+}
+println baseDir
+
+bootBuildImage {
+	bindings = [
+			"${baseDir}/config/bellsoft-jdk-config:/platform/bindings/bellsoft-jdk-config",
+	]
 }
