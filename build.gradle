@@ -12,8 +12,11 @@ java {
 }
 
 repositories {
-	flatDir {
-		dirs 'plugins'
+//	flatDir {
+//		dirs 'D:\\Desktop\\catalog-service\\plugins'
+//	}
+	maven {
+		url uri("${projectDir}/plugins")
 	}
 	mavenCentral()
 }
@@ -21,16 +24,21 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation files('plugins/bellsoft-jre17.0.7+7-linux-amd64.tar.gz')
+	implementation files('plugins/spring-cloud-bindings-1.10.0.jar')
 }
 
 
-//tasks.named("bootBuildImage") {
+tasks.named("bootBuildImage") {
 //	environment = ["BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true"]
-//}
-
-bootBuildImage {
-	environment = [
-			"BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true",
-			"BP_JVM_VERSION": "17",
-	]
+	environment["BP_JVM_VERSIOIN"] = "17"
+	environment["HTTP_PROXY"] = "http://127.0.0.1:1080"
+	environment["HTTPS_PROXY"] = "https://127.0.0.1:1080"
 }
+
+//bootBuildImage {
+//	environment = [
+//			"BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true",
+//			"BP_JVM_VERSION": "17",
+//	]
+//}
