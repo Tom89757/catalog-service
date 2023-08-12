@@ -24,6 +24,13 @@ dependencies {
 }
 
 
-tasks.named("bootBuildImage") {
-	environment = ["BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true"]
+//tasks.named("bootBuildImage") {
+//	environment = ["BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true"]
+//}
+
+bootBuildImage {
+	environment = [
+			"BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true",
+			"BP_JVM_VERSION": "17",
+	]
 }
