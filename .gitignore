@@ -36,8 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-libs/
-bindings/
-
-# Ignore Gradle build output directory
-build
+### plugins ###
+plugins/
