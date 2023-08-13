@@ -38,3 +38,5 @@ out/
 
 ### plugins ###
 plugins/bellsoft-jre17.0.7+7-linux-amd64.tar.gz
+
+target/
