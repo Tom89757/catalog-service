@@ -30,7 +30,6 @@ dependencies {
 }
 
 
-<<<<<<< HEAD
 tasks.named("bootBuildImage") {
 	environment = ["BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true"]
 }
@@ -39,7 +38,6 @@ bootBuildImage {
 	environment = [
 			"BP_JVM_VERSION": "17",
 	]
-||||||| a88bfcb
 //tasks.named("bootBuildImage") {
 //	environment = ["BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true"]
 //}
@@ -49,13 +47,11 @@ bootBuildImage {
 			"BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true",
 			"BP_JVM_VERSION": "17",
 	]
-=======
 tasks.named("bootBuildImage") {
 //	environment = ["BP_SPRING_CLOUD_BINDINGS_DISABLED" : "true"]
 	environment["BP_JVM_VERSIOIN"] = "17"
 	environment["HTTP_PROXY"] = "http://127.0.0.1:1080"
 	environment["HTTPS_PROXY"] = "https://127.0.0.1:1080"
->>>>>>> 6933da98b430229dd838acf1b8e18db88374f247
 }
 
 //bootBuildImage {
