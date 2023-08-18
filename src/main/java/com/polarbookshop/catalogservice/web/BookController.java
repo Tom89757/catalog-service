@@ -5,6 +5,8 @@ import com.polarbookshop.catalogservice.domain.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * @author Tom89757
  */
@@ -31,7 +33,7 @@ public class BookController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Book post(@RequestBody Book book) {
+    public Book post(@Valid @RequestBody Book book) {
         return bookService.addBookToCatalog(book);
     }
 
@@ -42,7 +44,8 @@ public class BookController {
     }
 
     @PutMapping("{isbn}")
-    public Book put(@PathVariable String isbn, @RequestBody Book book) {
+    public Book put(@Valid @PathVariable String isbn, @RequestBody Book book) {
+        System.out.println("test");
         return bookService.editBookDetails(isbn, book);
     }
 
