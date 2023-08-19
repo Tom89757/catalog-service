@@ -1,0 +1,5 @@
+* 8a4826e 2023-08-14 | init with spring-boot2 and maven [Tom89757]* 279f153 2023-08-14 | add Dockerfile [Tom89757]
+* 3ae6504 2023-08-17 | add Book entity [Tom89757]
+* 776d8d8 2023-08-17 | add APIs [Tom89757]
+* 6be7f84 2023-08-18 | finish business logic [Tom89757]
+* 286b5d9 2023-08-18 | add BookController (HEAD -> sb2-maven, origin/sb2-maven) [Tom89757]
