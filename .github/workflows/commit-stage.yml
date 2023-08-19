@@ -1,0 +1,11 @@
+name: Commit Stage # workflow名称
+on: push # 当新代码推送到存储库时出发workflow
+
+jobs:
+  build: # job的唯一标识符
+    name: Build and Test # 一个人性化的job名称
+    runs-on: ubuntu-22.04 # 运行job的机器类型
+    permissions: # 授予job的权限
+      contents: read # 查看当前git仓库的权限
+      security-events: write # 向github提交security events的权限
+
