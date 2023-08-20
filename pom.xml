@@ -56,8 +56,5 @@
         </plugins>
     </build>
 
-    <beans profile="testdata">
-        <bean id="bookDataLoader"  class="com.polarbookshop.catalogservice.demo.BookDataLoader"/>
-    </beans>
 
 </project>
