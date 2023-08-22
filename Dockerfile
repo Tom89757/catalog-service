@@ -1,4 +1,3 @@
-FROM openjdk:17-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ./target/catalog-service-0.0.1-SNAPSHOT.jar catalog-service.jar
-ENTRYPOINT ["java", "-jar", "/catalog-service.jar"]
+FROM ubuntu:22.04
+RUN apt-get update && apt-get install -y default-jre
+ENTRYPOINT ["java", "--version"]
