@@ -60,7 +60,7 @@ jobs:
         run: |
           chmod +x mvnw
           ./mvnw install
-          docker build --build-arg JAR_FILE=target/*.jar -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker build --build-arg JAR_FILE=target/*.jar -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} .
       - name: OCI image vulnerability scanning
         uses: anchore/scan-action@v3
         id: scan
