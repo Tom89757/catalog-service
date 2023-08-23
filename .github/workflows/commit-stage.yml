@@ -1,7 +1,7 @@
 name: Commit Stage
 on: push
 
-envs:
+env:
   REGISTRY: ghcr.io
   IMAGE_NAME: tom89757/catalog-service
   VERSION: latest
