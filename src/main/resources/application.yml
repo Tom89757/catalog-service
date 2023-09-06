@@ -38,6 +38,11 @@ spring:
       maximum-pool-size: 5
   profiles:
     active: testdata
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PolarBookshop
 
 management:
   endpoints:
