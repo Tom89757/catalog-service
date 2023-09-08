@@ -79,17 +79,6 @@ class BookRepositoryJdbcTests {
     }
 
     @Test
-    void deleteByIsbn() {
-        var bookIsbn = "1234561241";
-        var bookToCreate = Book.of(bookIsbn, "Title", "Author", 12.90, "Polarsophia");
-        var persistedBook = jdbcAggregateTemplate.insert(bookToCreate);
-
-        bookRepository.deleteByIsbn(bookIsbn);
-
-        assertThat(jdbcAggregateTemplate.findById(persistedBook.id(), Book.class)).isNull();
-    }
-
-    @Test
     void whenCreateBookNotAuthenticatedThenNoAuditMetadata() {
         var bookToCreate = Book.of("1232343456", "Title", "Author", 12.90, "Polarsophia");
         var createdBook = bookRepository.save(bookToCreate);
@@ -100,12 +89,23 @@ class BookRepositoryJdbcTests {
 
     @Test
     @WithMockUser("john")
-    void whenCreatBookAuthenticatedThenAuditMetadata() {
-        var bookToCreate = Book.of("1232343456", "Title", "Author", 12.90, "Polarsophia");
+    void whenCreateBookAuthenticatedThenAuditMetadata() {
+        var bookToCreate = Book.of("1232343457", "Title", "Author", 12.90, "Polarsophia");
         var createdBook = bookRepository.save(bookToCreate);
 
         assertThat(createdBook.createdBy()).isEqualTo("john");
         assertThat(createdBook.lastModifiedBy()).isEqualTo("john");
+    }
+
+    @Test
+    void deleteByIsbn() {
+        var bookIsbn = "1234561241";
+        var bookToCreate = Book.of(bookIsbn, "Title", "Author", 12.90, "Polarsophia");
+        var persistedBook = jdbcAggregateTemplate.insert(bookToCreate);
+
+        bookRepository.deleteByIsbn(bookIsbn);
+
+        assertThat(jdbcAggregateTemplate.findById(persistedBook.id(), Book.class)).isNull();
     }
 
 }
