@@ -1,7 +1,0 @@
-com\polarbookshop\catalogservice\CatalogServiceApplicationTests$KeycloakToken.class
-com\polarbookshop\catalogservice\web\BookControllerMvcTests.class
-com\polarbookshop\catalogservice\domain\BookRepositoryJdbcTests.class
-com\polarbookshop\catalogservice\domain\BookValidationTests.class
-com\polarbookshop\catalogservice\domain\BookServiceTest.class
-com\polarbookshop\catalogservice\CatalogServiceApplicationTests.class
-com\polarbookshop\catalogservice\web\BookJsonTests.class
